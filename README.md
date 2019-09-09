@@ -1,1 +1,1 @@
-# http://www.hatatori.github.io/cubo
+# https://hatatori.github.io/cubo/
