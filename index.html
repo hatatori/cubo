@@ -1,0 +1,62 @@
+<!-- kcireh.i@gmail.com -->
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<div id="centrao2"></div>
+
+<div id="centrao">
+	<div class="cena" id="cena">
+		<div class="cubo" id="cubo">
+			<div class="face frente"><img src='imgs/braum.png'></div>
+			<div class="face tras"><img src='imgs/darius.png'></div>
+			<div class="face direita"><img src='imgs/kennen.png'></div>
+			<div class="face esquerda"><img src='imgs/lulu.png'></div>
+			<div class="face cima"><img src='imgs/vladimir.png'></div>
+			<div class="face baixo"><img src='imgs/yorick.png'></div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+	drag = 0
+
+	window.onmousedown=function(){
+		drag = 1
+	}
+	
+	window.onmouseup=function(){
+		drag = 0
+	}
+
+	c_x = 0
+	c_y = 0
+
+	window.onmousemove=function(e){
+		if(drag){
+			console.log(e)
+			x = e.movementX
+			y = e.movementY
+			c_x += x
+			c_y += y*-1
+
+			cubo.style.transform="rotateX("+c_y+"deg) rotateY("+c_x+"deg) "
+		}
+	}
+
+	window.onkeyup=function(e){
+		if(e.key == "ArrowUp"){
+			c_y += y*-1
+			cubo.style.transform="rotateX("+c_y+"deg) rotateY("+c_x+"deg) "
+		}
+	}
+
+	n = 1
+	window.onwheel=function(e){
+		if(e.deltaY < 0)
+			n += 0.3
+		else
+			n -= 0.3
+		cena.style.transform="scale("+n+")"
+	}
+</script>
